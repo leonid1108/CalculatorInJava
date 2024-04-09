@@ -37,17 +37,19 @@ public class Main {
 
         int result = 0;
         int num1, num2;
+
         try {
             // Проверка на то, чтобы вводимые операнды были в одной С.С.
             boolean a = (Arrays.asList(romanNumbers).contains(numbers[1]));
             boolean b = (Arrays.asList(romanNumbers).contains(numbers[0]));
+
             if ((a && !b) || (!a && b)) {
                 throw new Exception();
             }
 
             num1 = Integer.parseInt(numbers[0]);
             num2 = Integer.parseInt(numbers[1]);
-            if ((num1 > 10 || num2 > 10)) {
+            if (num1 > 10 || num2 > 10) {
                 throw new Exception();
             }
 
@@ -74,7 +76,7 @@ public class Main {
             }
             return String.valueOf(result);
 
-        }   catch (Exception e) {
+        }   catch (NumberFormatException e) {
 
             //Приведение римских цифр в арабские для рассчета
             for (int i = 0; i < numbers.length; i++) {
